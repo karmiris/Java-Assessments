@@ -19,6 +19,7 @@ public class Display {
 	static void Menu (int menuScreen) {
 		switch (menuScreen) {
 		case 0:
+			System.out.println ("");
 			System.out.println ("--- MAIN MENU ---");
 			System.out.println ("1) Display All Files in Working Directory");
 			System.out.println ("2) Manage Files in Working Directory");
@@ -26,6 +27,7 @@ public class Display {
 			System.out.println ("");
 			break;
 		case 1:
+			System.out.println ("");
 			System.out.println ("--- Manage Working Directory ---");
 			System.out.println ("1) Add a File");
 			System.out.println ("2) Delete a File");

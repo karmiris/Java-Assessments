@@ -11,6 +11,7 @@ public class RunMe {
 		do {
 			Display.Menu(menu);
 			command = UserInput.GetCommand(menu);
+			menu = RunCommands.ExecuteCommand(menu, command);
 		}
 		while (menu != 0 || command != '3'); // quit command;
 		
