@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class UserInput {
 
-	static char GetCommand (int menu) {
+	static char getCommand (int menu) {
 		Scanner userCommand = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("What is your option?  ");
 			

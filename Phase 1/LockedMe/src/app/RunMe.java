@@ -6,16 +6,16 @@ public class RunMe {
 		int menu = 0; // menu screen: 0 - main menu; 1 - edit commands
 		char command = 'a'; // command received by user
 		
-		Display.WelcomeScreen();
+		Display.welcomeScreen();
 		
 		do {
-			Display.Menu(menu);
-			command = UserInput.GetCommand(menu);
-			menu = RunCommands.ExecuteCommand(menu, command);
+			Display.menu(menu);
+			command = UserInput.getCommand(menu);
+			menu = RunCommands.executeCommand(menu, command);
 		}
 		while (menu != 0 || command != '3'); // quit command;
 		
-		Display.Goodbye();
+		Display.goodbye();
 
 	}
 
