@@ -35,6 +35,11 @@ public class UserInput {
 		return option.charAt(0);
 	}
 	
-	
+	static String readFilename() {
+		Scanner fileName = new Scanner(System.in);  // Create a Scanner object
+		System.out.println("What is the name of the file?  ");
+			
+		return fileName.nextLine();  // Read user input
+	}
 	
 }

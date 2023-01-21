@@ -47,10 +47,10 @@ public class RunCommands {
 	}
 	
 	static private void createFile() {
-		String fileName = UserInput.getFilename();
+		String fileName = getFilename();
 		
 		if (fileExists(workingDir.list(), fileName))
-			System.out.println ("File "+ fileName + " already exists!");
+			System.out.println ("File \""+ fileName + "\" already exists!");
 		else {
 			File ff = new File(workingDir + "/" + fileName);
 			try {
@@ -64,7 +64,7 @@ public class RunCommands {
 	}
 	
 	static private void deleteFile() {
-		String fileName = UserInput.getFilename();
+		String fileName = getFilename();
 		
 		if (fileExists(workingDir.list(), fileName)) {
 			File ff = new File(workingDir + "/" + fileName);
@@ -77,17 +77,17 @@ public class RunCommands {
 			}
 		}
 		else
-			System.out.println ("File "+ fileName + " does not exist in folder!");
+			System.out.println ("File \""+ fileName + "\" does not exist in folder!");
 	
 	}
 	
 	static private void findFile() {
-		String fileName = UserInput.getFilename();
+		String fileName = getFilename();
 		
 		if (fileExists(workingDir.list(), fileName))
-			System.out.println ("File "+ fileName + " exists in folder!");
+			System.out.println ("File \""+ fileName + "\" exists in folder!");
 		else
-			System.out.println ("File "+ fileName + " does not exist in folder!");
+			System.out.println ("File \""+ fileName + "\" does not exist in folder!");
 	}
 	
 	// helpers
@@ -108,6 +108,25 @@ public class RunCommands {
 				return true;
 		
 		return false;
+	}
+	
+	static private String getFilename () {
+		String output = "";
+		
+		do {
+			try {
+				output = UserInput.readFilename();
+				if (output.isEmpty()) 
+					throw new Exception("Error: Please write at least one character");
+			}
+			catch (Exception e)
+			{
+				System.out.println(e.toString());
+			}
+		}
+		while (output.isEmpty());
+		
+		return output;
 	}
 	
 }
