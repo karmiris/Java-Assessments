@@ -55,6 +55,7 @@ public class RunCommands {
 			File ff = new File(workingDir + "/" + fileName);
 			try {
 				ff.createNewFile();
+				System.out.println ("File \""+ fileName + "\" successfully created!");
 			}
 			catch (Exception e)
 			{
@@ -70,6 +71,7 @@ public class RunCommands {
 			File ff = new File(workingDir + "/" + fileName);
 			try {
 				ff.delete();
+				System.out.println ("File \""+ fileName + "\" successfully deleted!");
 			}
 			catch (Exception e)
 			{
