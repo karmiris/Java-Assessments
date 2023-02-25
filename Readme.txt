@@ -1,3 +1,15 @@
+new course:
+Create new local folder> Run bash in it:
+git clone https://github.com/karmiris/Java-Assessments.git 	// perhaps better without token (?)
+git config --list
+git config --global user.name "me"
+git config --global user.email "me@here.com"
+git remote -v
+git remote add origin2 https://token@github.com/karmiris/Java-Assessments.git 	// if new token created
+git push -u origin2 main	
+git pull origin2 
+
+
 git init
 (create dummy file, just to create branch and make first submit)
 git add .
