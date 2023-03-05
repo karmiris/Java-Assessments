@@ -9,6 +9,18 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>A</servlet-name>
+    <servlet-class>com.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>A</servlet-name>
+    <url-pattern>/CheckLogin</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
