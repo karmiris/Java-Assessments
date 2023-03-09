@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
-		RequestDispatcher rd1 = request.getRequestDispatcher("Home");
+		RequestDispatcher rd1 = request.getRequestDispatcher("welcome.html");
 		RequestDispatcher rd2 = request.getRequestDispatcher("login.html");
 		response.setContentType("text/html");
 		String emailid = request.getParameter("emailid");
