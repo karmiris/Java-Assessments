@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LoginServlet
  */
+
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
        
     public LoginServlet() {
         super();
@@ -22,30 +22,18 @@ public class LoginServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter pw = response.getWriter();
-		RequestDispatcher rd1 = request.getRequestDispatcher("welcome.html");
-		RequestDispatcher rd2 = request.getRequestDispatcher("login.html");
-		response.setContentType("text/html");
-		String emailid = request.getParameter("emailid");
-		String password = request.getParameter("pass");
-		if(emailid.equals("admin") && password.equals("admin123")) {
-	pw.println("Successfully login with get method");
-			rd1.forward(request, response);
-		}else {
-			pw.println("failure try once again with get method");
-			rd2.include(request, response);
-		}		
+		doPost(request, response);		
 	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
 		
-		RequestDispatcher rd1 = request.getRequestDispatcher("Home");
+		RequestDispatcher rd1 = request.getRequestDispatcher("welcome.html");
 		RequestDispatcher rd2 = request.getRequestDispatcher("login.html");
 		response.setContentType("text/html");
 		String username = request.getParameter("uname");
 		String password = request.getParameter("pass");
 		if(username.equals("admin") && password.equals("admin123")) {
-			pw.println("Successfully login with post method");
 			rd1.forward(request, response);
 		}else {
 			pw.println("Bad username or password");
