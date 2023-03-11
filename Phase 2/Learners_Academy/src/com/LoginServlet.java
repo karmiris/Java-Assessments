@@ -42,13 +42,13 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher rd1 = request.getRequestDispatcher("Home");
 		RequestDispatcher rd2 = request.getRequestDispatcher("login.html");
 		response.setContentType("text/html");
-		String emailid = request.getParameter("emailid");
+		String username = request.getParameter("uname");
 		String password = request.getParameter("pass");
-		if(emailid.equals("admin") && password.equals("admin123")) {
+		if(username.equals("admin") && password.equals("admin123")) {
 			pw.println("Successfully login with post method");
 			rd1.forward(request, response);
 		}else {
-			pw.println("failure try once again with post method");
+			pw.println("Bad username or password");
 			rd2.include(request, response);
 		}
 	}
