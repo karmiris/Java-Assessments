@@ -1,1 +1,22 @@
-a
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Manage Subjects</title>
+</head>
+<body>
+  
+    <h2>Add a subject</h2>
+    <form action="AddSubject" method="post">
+
+		<label>Subject Name</label>
+		<input type="text" name="subname"/><br/>
+    
+		<input type="submit" value="submit"/>
+		<input type="reset" value="reset"/>
+    </form>
+
+    <h2>List of all subjects:</h2>
+
+</body>
+</html>
