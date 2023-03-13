@@ -6,6 +6,8 @@
 </head>
 <body>
   
+  	<h3><a href="welcome.hmtl">Main Menu</a></h3><br><br>
+  	
     <h2>Add a subject</h2>
     <form action="AddSubject" method="post">
 
