@@ -58,17 +58,18 @@ import com.resource.DbResource;
 		return s;	
 	}
 
-	public Subject findSubjectByName(String name) {
+	public List<Subject> findSubjectByName(String name) {
 		Session session = sf.openSession();
-		Subject s = session.get(Subject.class, name);
-		return s;	
+		TypedQuery<Subject> tq = session.createQuery("from Subject where name = " + name);
+		List<Subject> listOfSubject = tq.getResultList();
+		return listOfSubject;
 	}
 	
-	public List<Product> findProductAllProduct() {
+	public List<Subject> findSubjectAllSubject() {
 		Session session = sf.openSession();
-		TypedQuery<Product> tq = session.createQuery("from Product");
-		List<Product> listOfProduct = tq.getResultList();
-		return listOfProduct;
+		TypedQuery<Subject> tq = session.createQuery("from Subject");
+		List<Subject> listOfSubject = tq.getResultList();
+		return listOfSubject;
 	}
 
 }
