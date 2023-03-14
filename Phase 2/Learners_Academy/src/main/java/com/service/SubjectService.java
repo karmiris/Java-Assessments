@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.dao.SubjectDao;
@@ -9,53 +11,39 @@ public class SubjectService {
 
 	SubjectDao pd = new SubjectDao();
   
-	public String storeProduct(Product product) {
-		if(product.getPrice()<500) {
-			return "Product price must > 500";
-		}else {
-			if(pd.storeProduct(product)>0) {
-				return "Product stored successfully";
-			}else {
-				return "Product didn't store";
-			}
-		}
+	public String storeSubject(Subject subject) {
+		if (pd.findSubjectByName(subject.getName()) != null)
+			return "Subject already exists";
+		else 
+			return pd.storeSubject(subject);
 	}
 	
-	public String deleteProduct(int pid) {
-		if(pd.deleteProduct(pid)>0) {
-			return "Product deleted";
-		}else {
-			return "Product not deleted";
-		}
+	public String deleteSubject (int id) {
+		return pd.deleteSubject(id);
 	}
 	
-	public String incrementProductPrice(Product product) {
-		if(pd.incrementProductPrice(product)>0) {
-			return "Product price incremented";
-		}else {
-			return "Product not deleted";
-		}
+	public String findSubjectById (int id) {
+		Subject pp = pd.findSubjectById(id);
+		if (pp == null) 
+			return "Subject not found";
+		else 
+			return pp.getName();
 	}
 	
-	public String decrementProductPrice(Product product) {
-		if(pd.decrementProductPrice(product)>0) {
-			return "Product price decrement";
-		}else {
-			return "Product not deleted";
-		}
+	public Subject findSubjectByName (String name) {
+		List<Subject> pp = pd.findSubjectByName(name);
+		return pp.get(0);
 	}
 	
-	public String findProduct(int pid) {
-		Product pp = pd.findProductById(pid);
-		if(pp==null) {
-			return "Product not present";
-		}else {
-			return pp.toString();
+	public List<String> findSubjectAllSubject() {
+		List<String> output = new ArrayList<String>();
+		List<Subject> subjects = pd.findSubjectAllSubject();
+		Iterator<Subject> li = subjects.iterator();
+		while (li.hasNext()) {
+			Subject subject = li.next(); 
+			output.add(subject.getName());
 		}
-	}
-	
-	public List<Product> findAllProduct() {
-		return pd.findProductAllProduct();
+		return output;
 	}
 	
 }

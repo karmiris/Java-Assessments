@@ -26,7 +26,7 @@ public class SubjectDao {
 			tran.begin();
 				session.save(subject);
 			tran.commit();
-			return "OK";
+			return "Subject stored successfully";
 		} 
 		catch(Exception e) {		
 			return e.getMessage();		
@@ -44,7 +44,7 @@ public class SubjectDao {
 				tran.begin();
 					session.delete(s);
 				tran.commit();
-				return "OK";
+				return "Subject deleted successfully";
 			}		
 		}
 		catch(Exception e) {
@@ -58,7 +58,7 @@ public class SubjectDao {
 		return s;		
 	}
 
-	public List<Subject> findSubjectByName(String name) {
+	public List<Subject> findSubjectByName (String name) {
 		Session session = sf.openSession();
 		TypedQuery<Subject> tq = session.createQuery("from Subject where name = " + name);
 		List<Subject> listOfSubject = tq.getResultList();
