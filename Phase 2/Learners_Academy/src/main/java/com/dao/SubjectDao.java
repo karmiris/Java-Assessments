@@ -8,54 +8,54 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.entity.Product;
+import com.entity.Subject;
 import com.resource.DbResource;
 
-  public class SubjectDao {
-    SessionFactory sf;
-	  public SubjectDao() {			
-		  sf = DbResource.getSessionFactory();
-	  }
-  }
+public class SubjectDao {
 
-  public String storeSubject(Subject subject) {
+	SessionFactory sf;
+		
+	public SubjectDao() {				
+		sf = DbResource.getSessionFactory();
+	}
+
+	public String storeSubject(Subject subject) {
 		try {
-		  Session session = sf.openSession();
-		  Transaction tran = session.getTransaction();
-		  tran.begin();
-			  session.save(subject);
-		  tran.commit();
-		  return 'OK';
+			Session session = sf.openSession();
+			Transaction tran = session.getTransaction();
+			tran.begin();
+				session.save(subject);
+			tran.commit();
+			return "OK";
 		} 
-    catch(Exception e) {
-			return e;
-		}
+		catch(Exception e) {		
+			return e.getMessage();		
+		}	
 	}
     
 	public String deleteSubject(int id) {
 		try {
-      Session session = sf.openSession();
-		  Transaction tran = session.getTransaction();
-		  Subject s = session.get(Subject.class, id);
-		  if (s == null) {
-			  return 'No data found to delete';
-		  }
-      else {
-			  tran.begin();
-				  session.delete(s);
-			  tran.commit();
-			  return 'OK';
-      }
+			Session session = sf.openSession();
+			Transaction tran = session.getTransaction();
+			Subject s = session.get(Subject.class, id);
+			if (s == null) 
+				return "No data found to delete";
+			else {
+				tran.begin();
+					session.delete(s);
+				tran.commit();
+				return "OK";
+			}		
 		}
-    catch(Exception e) {
-		  return e;
-		}
+		catch(Exception e) {
+			return e.getMessage();	
+		}	
 	}
   
-	public Subject findSubjectById(int id) {
-		Session session = sf.openSession();
-		Subject s = session.get(Subject.class, id);
-		return s;	
+	public Subject findSubjectById(int id) {	
+		Session session = sf.openSession();		
+		Subject s = session.get(Subject.class, id);		
+		return s;		
 	}
 
 	public List<Subject> findSubjectByName(String name) {
